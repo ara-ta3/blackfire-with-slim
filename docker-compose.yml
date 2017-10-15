@@ -1,0 +1,11 @@
+version: '2'
+
+services:
+    web:
+        image: 'php:7.1.10'
+        volumes: 
+            - $PWD:/opt/app
+        ports:
+            - '8080:8080'
+        command: 'make -C /opt/app server host=0.0.0.0'
+
