@@ -26,4 +26,11 @@ $app->get('/', function ($request, $response, $args) {
 	return $this->view->render($response, 'index.html', []);
 });
 
+$app->post('/hey', function($request, $response, $args) {
+    $name = $request->getParam('name');
+    return $response->withJson([
+        'message' => sprintf('hey %s', $name),
+    ]);
+});
+
 $app->run();
